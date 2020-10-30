@@ -47,6 +47,12 @@
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
       "likes": -2
+    },
+    {
+      "name": "Cloud",
+      "image": "https://cdn-prod.scalefast.com/public/assets/img/resized/squareenix-store-v3/4f24397a33a2c672bf289e6fff568ad3_1920_KR.jpg",
+      "likes": 0,
+      "id": 9
     }
   ]
 }

@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //for targeting html elements
 const toyCollectionDiv = document.querySelector("#toy-collection")
+const newToyForm = document.querySelector(".add-toy-form")
 
 //**************** define functions ****************
 
@@ -45,7 +46,34 @@ function getAllToys() {
   .then(response => response.json())
 }
 
+function createToy(toyObj) {
+  return fetch("http://localhost:3000/toys", {
+    method: "POST",
+    headers: {
+      "Content-Type": 'application/json'
+    },
+    body: JSON.stringify(toyObj)
+  })
+    .then(response => response.json())
+}
+
 //event listeners
+newToyForm.addEventListener('submit', function(e){
+  e.preventDefault()
+  const newToyObj = {
+    name: e.target.name.value,
+    image: e.target.image.value,
+    likes: 0
+  }
+
+  createToy(newToyObj)
+    .then(toyObj => {
+      renderToy(toyObj)
+    })
+  
+  e.target.reset()
+
+})
 
 //event handlers
 
