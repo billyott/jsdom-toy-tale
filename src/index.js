@@ -28,7 +28,6 @@ function renderToy(toy) {
   const toyCard = document.createElement("div")
   toyCard.className = "card"
   toyCard.dataset.id = toy.id
-  toyCard.dataset.likes = toy.likes
   toyCard.innerHTML = `
     <h2>${toy.name}</h2>
     <img src=${toy.image} class="toy-avatar" />

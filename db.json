@@ -4,7 +4,7 @@
       "id": 1,
       "name": "Woody",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": "25"
+      "likes": "31"
     },
     {
       "id": 2,
@@ -65,6 +65,12 @@
       "image": "https://www.siliconera.com/wp-content/uploads/2020/04/final-fantasy-vii-cait-sith-action-doll-final-fantasy-7-cait-sith-2.jpg",
       "likes": "8",
       "id": 11
+    },
+    {
+      "name": "Yuffie",
+      "image": "https://images-fe.ssl-images-amazon.com/images/I/31A6V08YzwL.jpg",
+      "likes": "4",
+      "id": 12
     }
   ]
 }
