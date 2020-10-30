@@ -28,6 +28,7 @@ function renderToy(toy) {
   const toyCard = document.createElement("div")
   toyCard.className = "card"
   toyCard.dataset.id = toy.id
+  toyCard.dataset.likes = toy.likes
   toyCard.innerHTML = `
     <h2>${toy.name}</h2>
     <img src=${toy.image} class="toy-avatar" />
@@ -58,8 +59,23 @@ function createToy(toyObj) {
     .then(response => response.json())
 }
 
+function updateLikes(toyId, toyLikeCount) {
+  return fetch(`http://localhost:3000/toys/${toyId}`), {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+      "likes": `${toyLikeCount + 1}` 
+    })
+    .then(response => response.json())
+  }
+}
+
 //event listeners
 newToyForm.addEventListener('submit', handleNewToyFormSubmit)
+toyCollectionDiv.addEventListener('click', handleIncreaseLikes)
 
 //event handlers
 function handleNewToyFormSubmit(e) {
@@ -76,10 +92,19 @@ function handleNewToyFormSubmit(e) {
         renderToy(toyObj)
       } else {
         alert("Shoot. Something went wrong :(")
-      }
+      }˚≤ ,
     })
   
   e.target.reset()
+}
+
+function handleIncreaseLikes(e) {
+  if (e.target.matches(".like-btn")) {
+    const toyId = e.target.closest(".card").dataset.id
+    const currentLikes = parseInt(e.target.closest(".card").dataset.likes)
+    // updateLikes(toyId, currentLikes)
+
+  }
 }
 
 //initialization
