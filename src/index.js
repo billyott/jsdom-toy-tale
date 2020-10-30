@@ -32,7 +32,7 @@ function renderToy(toy) {
   toyCard.innerHTML = `
     <h2>${toy.name}</h2>
     <img src=${toy.image} class="toy-avatar" />
-    <p>${toy.likes} Likes </p>
+    <p data-likes-id=${toy.id}-likes>${toy.likes} Likes </p>
     <button class="like-btn">Like <3</button>`
   toyCollectionDiv.append(toyCard)
 }
@@ -60,17 +60,23 @@ function createToy(toyObj) {
 }
 
 function updateLikes(toyId, toyLikeCount) {
-  return fetch(`http://localhost:3000/toys/${toyId}`), {
+  return fetch(`http://localhost:3000/toys/${toyId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
       "Accept": "application/json"
     },
     body: JSON.stringify({
-      "likes": `${toyLikeCount + 1}` 
+      likes: `${toyLikeCount + 1}` 
+    }),
+  })
+    .then(response => {
+      if (response.ok) {
+        return response.json()
+      } else {
+        throw new Error("likes didn't update :(")
+      }
     })
-    .then(response => response.json())
-  }
 }
 
 //event listeners
@@ -92,7 +98,7 @@ function handleNewToyFormSubmit(e) {
         renderToy(toyObj)
       } else {
         alert("Shoot. Something went wrong :(")
-      }˚≤ ,
+      }
     })
   
   e.target.reset()
@@ -101,9 +107,12 @@ function handleNewToyFormSubmit(e) {
 function handleIncreaseLikes(e) {
   if (e.target.matches(".like-btn")) {
     const toyId = e.target.closest(".card").dataset.id
-    const currentLikes = parseInt(e.target.closest(".card").dataset.likes)
-    // updateLikes(toyId, currentLikes)
-
+    const likesP = document.querySelector(`[data-likes-id='${toyId}-likes']`)
+    const currentLikes = parseInt(likesP.textContent)
+    updateLikes(toyId, currentLikes)
+      .then(toyObj => {
+          likesP.textContent = `${toyObj.likes} Likes`
+      })
   }
 }
 
@@ -114,7 +123,7 @@ function initialize() {
       renderAllToys(toyArray)
     })
     .catch(errors => {
-      alert("Failed to grab all toys :(")
+      alert("Shoot. Something went wrong :(")
     })
 }
 

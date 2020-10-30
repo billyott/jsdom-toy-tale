@@ -4,25 +4,25 @@
       "id": 1,
       "name": "Woody",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": 5
+      "likes": "25"
     },
     {
       "id": 2,
       "name": "Buzz Lightyear",
       "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
-      "likes": 8
+      "likes": "11"
     },
     {
       "id": 3,
       "name": "Mr. Potato Head",
       "image": "https://vignette.wikia.nocookie.net/universe-of-smash-bros-lawl/images/d/d8/Mr-potato-head-toy-story.gif/revision/latest?cb=20151129131217",
-      "likes": 3
+      "likes": "12"
     },
     {
       "id": 4,
       "name": "Slinky Dog",
       "image": "https://www.freeiconspng.com/uploads/slinky-png-transparent-1.png",
-      "likes": 4
+      "likes": "14"
     },
     {
       "id": 5,
@@ -40,7 +40,7 @@
       "id": 7,
       "name": "Hamm",
       "image": "https://cdn140.picsart.com/244090226021212.png?r1024x1024",
-      "likes": 0
+      "likes": "3"
     },
     {
       "id": 8,
@@ -51,14 +51,20 @@
     {
       "name": "Cloud",
       "image": "https://cdn-prod.scalefast.com/public/assets/img/resized/squareenix-store-v3/4f24397a33a2c672bf289e6fff568ad3_1920_KR.jpg",
-      "likes": 0,
+      "likes": "50",
       "id": 9
     },
     {
       "name": "Tifa",
       "image": "https://cdn3.volusion.com/7aztx.j6veq/v/vspfiles/photos/SX0022-5.jpg",
-      "likes": 0,
+      "likes": "99",
       "id": 10
+    },
+    {
+      "name": "Cait Sith",
+      "image": "https://www.siliconera.com/wp-content/uploads/2020/04/final-fantasy-vii-cait-sith-action-doll-final-fantasy-7-cait-sith-2.jpg",
+      "likes": "8",
+      "id": 11
     }
   ]
 }
