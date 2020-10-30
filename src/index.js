@@ -50,7 +50,8 @@ function createToy(toyObj) {
   return fetch("http://localhost:3000/toys", {
     method: "POST",
     headers: {
-      "Content-Type": 'application/json'
+      "Content-Type": 'application/json',
+      "Accept": "application/json"
     },
     body: JSON.stringify(toyObj)
   })
@@ -58,7 +59,10 @@ function createToy(toyObj) {
 }
 
 //event listeners
-newToyForm.addEventListener('submit', function(e){
+newToyForm.addEventListener('submit', handleNewToyFormSubmit)
+
+//event handlers
+function handleNewToyFormSubmit(e) {
   e.preventDefault()
   const newToyObj = {
     name: e.target.name.value,
@@ -68,14 +72,15 @@ newToyForm.addEventListener('submit', function(e){
 
   createToy(newToyObj)
     .then(toyObj => {
-      renderToy(toyObj)
+      if (toyObj.name) {
+        renderToy(toyObj)
+      } else {
+        alert("Shoot. Something went wrong :(")
+      }
     })
   
   e.target.reset()
-
-})
-
-//event handlers
+}
 
 //initialization
 function initialize() {
